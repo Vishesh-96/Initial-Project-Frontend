@@ -1,0 +1,37 @@
+<div>
+    <h1>Part Details</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="carModelId">Car Model ID:</label>&nbsp;&nbsp;&nbsp;
+        <input type="text" id="carModelId" [(ngModel)]="carModelId" name="carModelId" required><br><br>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button><br><br>
+    </form>
+
+    <ng-container *ngIf="showResults"> 
+        <p>Available stock of each component compatible with car model ID: {{ carModelId }}</p>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>ComponentName</th>
+                <th>ComponentId</th>
+                <th>Units in Stock</th>
+            </tr>
+        </thead>
+        
+        <tbody *ngFor="let partDetail of partDetails">
+            <tr>
+              <td class="align-middle">{{ partDetail.componentName }}</td>
+              <td class="align-middle">{{ partDetail.componentId }}</td>
+              <td class="align-middle">{{ partDetail.unitInStock }}</td>
+            </tr>
+          </tbody>         
+        </table>
+        <button (click)="placeOrder()">Place Order</button>
+        <div id="comp-render" *ngIf="display">
+          <app-order></app-order>
+       </div>
+       
+    </ng-container>
+  </div>
+  

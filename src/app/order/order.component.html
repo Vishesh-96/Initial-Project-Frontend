@@ -1,0 +1,13 @@
+<h2>Place Order</h2>
+
+<form (ngSubmit)="placeOrder()" #orderForm="ngForm">
+  <div class="form-group">
+    <label for="componentId">Component ID</label>
+    <input type="text" class="form-control" id="componentId" name="componentId" [(ngModel)]="componentId" required>
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="number" class="form-control" id="unitInStock" name="unitInStock" [(ngModel)]="unitInStock" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Finish</button>
+</form>
